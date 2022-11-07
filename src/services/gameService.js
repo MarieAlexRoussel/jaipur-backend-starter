@@ -23,8 +23,7 @@ export function drawCards(deck, count = 1) {
   return drawnCards
 }
 
-
-// Déplace les chameaux de la main d'un joueur (_players[i].hand) vers son enclos (_players[i].camelsCount).
+// Transfer camels from players hand (_players[i].hand) to their herd (_players[i].camelsCount)
 export function putCamelsFromHandToHerd(game) {
   game._players.forEach((player) => {
     let camelIndex = player.hand.findIndex((card) => card === "camel")
@@ -36,8 +35,7 @@ export function putCamelsFromHandToHerd(game) {
   })
 }
 
-
-// Créer un objet game.
+// Create a game object
 export function createGame(name) {
   const deck = initDeck()
   const market = ["camel", "camel", "camel", ...drawCards(deck, 2)]
@@ -70,4 +68,3 @@ export function createGame(name) {
   db.saveGame(game)
   return game
 }
-
